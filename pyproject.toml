@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pexray"
+version = "0.1.0.dev0"
+description = "X-ray a PEX file: see what's inside, what it runs on, and what changed between builds — without executing it."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+keywords = ["pex", "packaging", "wheel", "dependencies", "sbom", "diff"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Build Tools",
+]
+dependencies = [
+  "packaging>=23",
+  "rich>=13",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pex>=2.1"]
+
+[project.scripts]
+pexray = "pexray.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pexray"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

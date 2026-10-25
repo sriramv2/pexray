@@ -1,0 +1,12 @@
+__pycache__/
+*.egg-info/
+.venv/
+dist/
+build/
+.pytest_cache/
+tests/fixtures/*.pex
+tests/fixtures/req-packed/
+
+# local test inputs (large binaries)
+/*.pex
+/*.whl
